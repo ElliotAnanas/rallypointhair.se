@@ -38,19 +38,19 @@ function Teamet() {
           <Reveal
             key={member.name}
             delay={i * 80}
-            className={`grid gap-8 md:grid-cols-[minmax(0,380px)_1fr] md:items-center md:gap-14 ${
-              i % 2 === 1 ? "md:[&>figure]:order-2" : ""
+            className={`flex flex-col gap-8 md:items-center md:gap-14 ${
+              i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"
             }`}
           >
-            <figure className="img-zoom overflow-hidden">
+            <figure className="img-zoom overflow-hidden w-full max-w-[380px] h-[475px] shrink-0 mx-auto md:mx-0">
               <img
                 src={member.image}
                 alt={`${member.name}, frisör på Rallypoint Hair`}
                 loading="lazy"
-                className="aspect-[4/5] w-full object-cover grayscale"
+                className="w-full h-full object-cover grayscale"
               />
             </figure>
-            <div>
+            <div className="flex-1">
               <h2 className="font-display text-4xl">{member.name}</h2>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
                 {member.paragraphs.map((p) => (
