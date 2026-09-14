@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { contact, priceSections } from "@/lib/site";
 import { Reveal } from "@/components/reveal";
 
-export const Route = createFileRoute("/prislista")({
+export const Route = createFileRoute("/priser")({
   head: () => ({
     meta: [
       { title: "Prislista – klippning & färgning | Rallypoint Hair" },

@@ -95,7 +95,7 @@ function Index() {
               </a>{" "}
               eller online via Bokadirekt.
             </p>
-            <Link to="/prislista" className="link-rule mt-5 inline-block text-sm">
+            <Link to="/priser" className="link-rule mt-5 inline-block text-sm">
               Se våra priser
             </Link>
           </Reveal>

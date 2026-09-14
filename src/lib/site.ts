@@ -32,10 +32,10 @@ export const contact = {
 };
 
 export const nav = [
-  { to: "/prislista", label: "Prislista" },
-  { to: "/tidsbokning", label: "Tidsbokning" },
-  { to: "/teamet", label: "Teamet" },
-  { to: "/kontakt", label: "Kontakt" },
+  { to: "/priser", label: "Priser" },
+  { to: "/boka", label: "Boka" },
+  { to: "/team", label: "Team" },
+  { to: "/hittahit", label: "Hitta hit" },
   { to: "/galleri", label: "Galleri" },
 ] as const;
 

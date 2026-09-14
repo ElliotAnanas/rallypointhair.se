@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { contact } from "@/lib/site";
 import { Reveal } from "@/components/reveal";
 
-export const Route = createFileRoute("/kontakt")({
+export const Route = createFileRoute("/hittahit")({
   head: () => ({
     meta: [
       { title: "Kontakt & hitta hit – Brännkyrkagatan 32 | Rallypoint Hair" },

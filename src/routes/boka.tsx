@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { contact } from "@/lib/site";
 
-export const Route = createFileRoute("/tidsbokning")({
+export const Route = createFileRoute("/boka")({
   head: () => ({
     meta: [
       { title: "Boka tid hos frisören | Rallypoint Hair" },

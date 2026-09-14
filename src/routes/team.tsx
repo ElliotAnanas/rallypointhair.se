@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { contact, team } from "@/lib/site";
 import { Reveal } from "@/components/reveal";
 
-export const Route = createFileRoute("/teamet")({
+export const Route = createFileRoute("/team")({
   head: () => ({
     meta: [
       { title: "Vi på Rallypoint – Hanna, Jonna & Nazanin | Rallypoint Hair" },

@@ -10,15 +10,20 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BokaRouteImport } from './routes/boka'
 import { Route as GalleriRouteImport } from './routes/galleri'
-import { Route as KontaktRouteImport } from './routes/kontakt'
-import { Route as PrislistaRouteImport } from './routes/prislista'
-import { Route as TeametRouteImport } from './routes/teamet'
-import { Route as TidsbokningRouteImport } from './routes/tidsbokning'
+import { Route as HittahitRouteImport } from './routes/hittahit'
+import { Route as PriserRouteImport } from './routes/priser'
+import { Route as TeamRouteImport } from './routes/team'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BokaRoute = BokaRouteImport.update({
+  id: '/boka',
+  path: '/boka',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleriRoute = GalleriRouteImport.update({
@@ -26,75 +31,63 @@ const GalleriRoute = GalleriRouteImport.update({
   path: '/galleri',
   getParentRoute: () => rootRouteImport,
 } as any)
-const KontaktRoute = KontaktRouteImport.update({
-  id: '/kontakt',
-  path: '/kontakt',
+const HittahitRoute = HittahitRouteImport.update({
+  id: '/hittahit',
+  path: '/hittahit',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrislistaRoute = PrislistaRouteImport.update({
-  id: '/prislista',
-  path: '/prislista',
+const PriserRoute = PriserRouteImport.update({
+  id: '/priser',
+  path: '/priser',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TeametRoute = TeametRouteImport.update({
-  id: '/teamet',
-  path: '/teamet',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TidsbokningRoute = TidsbokningRouteImport.update({
-  id: '/tidsbokning',
-  path: '/tidsbokning',
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/boka': typeof BokaRoute
   '/galleri': typeof GalleriRoute
-  '/kontakt': typeof KontaktRoute
-  '/prislista': typeof PrislistaRoute
-  '/teamet': typeof TeametRoute
-  '/tidsbokning': typeof TidsbokningRoute
+  '/hittahit': typeof HittahitRoute
+  '/priser': typeof PriserRoute
+  '/team': typeof TeamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/boka': typeof BokaRoute
   '/galleri': typeof GalleriRoute
-  '/kontakt': typeof KontaktRoute
-  '/prislista': typeof PrislistaRoute
-  '/teamet': typeof TeametRoute
-  '/tidsbokning': typeof TidsbokningRoute
+  '/hittahit': typeof HittahitRoute
+  '/priser': typeof PriserRoute
+  '/team': typeof TeamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/boka': typeof BokaRoute
   '/galleri': typeof GalleriRoute
-  '/kontakt': typeof KontaktRoute
-  '/prislista': typeof PrislistaRoute
-  '/teamet': typeof TeametRoute
-  '/tidsbokning': typeof TidsbokningRoute
+  '/hittahit': typeof HittahitRoute
+  '/priser': typeof PriserRoute
+  '/team': typeof TeamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    '/' | '/galleri' | '/kontakt' | '/prislista' | '/teamet' | '/tidsbokning'
+  fullPaths: '/' | '/boka' | '/galleri' | '/hittahit' | '/priser' | '/team'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/galleri' | '/kontakt' | '/prislista' | '/teamet' | '/tidsbokning'
+  to: '/' | '/boka' | '/galleri' | '/hittahit' | '/priser' | '/team'
   id:
-    | '__root__'
-    | '/'
-    | '/galleri'
-    | '/kontakt'
-    | '/prislista'
-    | '/teamet'
-    | '/tidsbokning'
+    '__root__' | '/' | '/boka' | '/galleri' | '/hittahit' | '/priser' | '/team'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BokaRoute: typeof BokaRoute
   GalleriRoute: typeof GalleriRoute
-  KontaktRoute: typeof KontaktRoute
-  PrislistaRoute: typeof PrislistaRoute
-  TeametRoute: typeof TeametRoute
-  TidsbokningRoute: typeof TidsbokningRoute
+  HittahitRoute: typeof HittahitRoute
+  PriserRoute: typeof PriserRoute
+  TeamRoute: typeof TeamRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -106,6 +99,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/boka': {
+      id: '/boka'
+      path: '/boka'
+      fullPath: '/boka'
+      preLoaderRoute: typeof BokaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/galleri': {
       id: '/galleri'
       path: '/galleri'
@@ -113,32 +113,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleriRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/kontakt': {
-      id: '/kontakt'
-      path: '/kontakt'
-      fullPath: '/kontakt'
-      preLoaderRoute: typeof KontaktRouteImport
+    '/hittahit': {
+      id: '/hittahit'
+      path: '/hittahit'
+      fullPath: '/hittahit'
+      preLoaderRoute: typeof HittahitRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/prislista': {
-      id: '/prislista'
-      path: '/prislista'
-      fullPath: '/prislista'
-      preLoaderRoute: typeof PrislistaRouteImport
+    '/priser': {
+      id: '/priser'
+      path: '/priser'
+      fullPath: '/priser'
+      preLoaderRoute: typeof PriserRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/teamet': {
-      id: '/teamet'
-      path: '/teamet'
-      fullPath: '/teamet'
-      preLoaderRoute: typeof TeametRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/tidsbokning': {
-      id: '/tidsbokning'
-      path: '/tidsbokning'
-      fullPath: '/tidsbokning'
-      preLoaderRoute: typeof TidsbokningRouteImport
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -146,11 +139,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BokaRoute: BokaRoute,
   GalleriRoute: GalleriRoute,
-  KontaktRoute: KontaktRoute,
-  PrislistaRoute: PrislistaRoute,
-  TeametRoute: TeametRoute,
-  TidsbokningRoute: TidsbokningRoute,
+  HittahitRoute: HittahitRoute,
+  PriserRoute: PriserRoute,
+  TeamRoute: TeamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
